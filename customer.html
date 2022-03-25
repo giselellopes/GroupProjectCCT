@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="uft-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer registration</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <p><img src="img\westmore_logo.jpg" alt="Westmore" width="300" height="100"></p>
+<h1>Registration</h1>
+<h2>Let’s setup your information to allow you to contact our developers</h2>
+<form >
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <br>
+    <label for="email">E-mail:</label><br>
+    <input type="text" id="email" name="email"><br>
+    <br>
+    <label for="phone">Phone:</label><br>
+    <input type="text" id="phone" name="phone"><br>
+    <br>
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address"><br>
+    <br>
+    <label for="password">Password:</label><br>
+    <input type="text" id="password" name="password"><br>
+    <br>
+    <p>Payment options</p>
+    <label for="flags">Card flags:</label>
+    <select name="flags" id="flags">
+      <option value="visa">Visa</option>
+      <option value="mastercard">Maetercard</option>
+      <option value="elo">Elo</option>
+      <option value="americanExpress">American Express</option>
+      <option value="maestro">Maestro</option>     
+    </select>
+    <br><br>
+    <label for="cardNumber">Card Number:</label><br>
+    <input type="text" id="cardNumber" name="cardNumber"><br>
+    <label for="cardHolder">Card Holder:</label><br>
+    <input type="text" id="cardHolder" name="cardHolder"><br>
+    <br>
+    <p>By select this you have allowed us to keep your data and accepted our contract
+    <label class="container"> Yes
+      <input type="radio" checked="checked" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container"> No
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+</p>
+<input type="submit" value="Submit"><br>
+<br>
+<br>
+<p>I would like delete my account </p>
+<label for="email">E-mail:</label><br>
+<input type="text" id="email" name="email"><br>
+<label for="password">Password:</label><br>
+<input type="text" id="password" name="password"><br>
+<input type="submit" value="Delete"><br>
+  </form>
+</body>
+</html>

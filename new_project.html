@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="uft-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Project</title>
+</head>
+<body>
+    <p><img src="img\westmore_logo.jpg" alt="Westmore" width="300" height="100"></p>
+<h1>Create a new project</h1>
+<h2>Let’s fill the project information</h2>
+<form >
+    <label for="myfile">Select a picture:</label>
+    <input type="file" id="myfile" name="myfile"><br><br>
+    <br>
+    <br>
+    <label for="projName">Project name:</label><br>
+    <input type="text" id="projName" name="projName"><br>
+    <br>
+    <label for="projDescription">Project description:</label><br>
+    <input type="text" id="projDescription" name="projDescription"><br>
+    <br>
+    <label for="projCategory">Select the category:</label>
+    <select name="projCategory id="projCategory">
+      <option value="webdevelopment">Web development</option>
+      <option value="ecommerce">E-commerce</option>
+      <option value="blog">Blog</option>
+      <option value="networking">Networking</option>
+      <option value="game">Game</option>     
+      <option value="design">Design</option> 
+      <option value="webDevelopment">Web development</option>
+    </select>
+    <br><br>
+    <label for="price">Price:</label><br>
+    <input type="text" id="Price" name="Price"><br>
+    <label for="externalLink">External Link:</label><br>
+    <input type="text" id="externalLink" name="externalLink"><br>
+    <label for="projKeywords">Project key-words:</label><br>
+    <input type="text" id="projKeywords" name="projKeywords"><br>
+    <br>
+    <p>Accept personalized/ extended development?
+    <label class="container"> Yes
+      <input type="radio" checked="checked" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container"> No
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+</p>
+    <br><br>
+    <p>List of requirements and information for the Project:</p>
+    <input type="checkbox" id="businessInformation" name="businessInformation" value="businessInformation">
+    <label for="businessInformation"> Business information</label><br>
+    <input type="checkbox" id="businessPic" name="businessPic" value="businessPic">
+    <label for="businessPic"> Business Pictures</label><br>
+    <input type="checkbox" id="businessLogo" name="businessLogo" value="businessLogo">
+    <label for="businessLogo"> Business visual identification</label><br>
+    <input type="checkbox" id="businessDatabase" name="businessDatabase" value="businessDatabase">
+    <label for="businessDatabase"> Products/ price database</label><br><br>
+    <label for="otherAdd"> Add more: </label>
+    <input type="text" id="otherAdd" name="otherAdd"><br><br>
+    <input type="submit" value="Add"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+<br>
+</body>
+</html>
