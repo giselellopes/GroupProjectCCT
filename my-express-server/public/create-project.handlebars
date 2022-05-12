@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="col-12">
+        <h4 class="register-title">Create a new project</h4>
+    </div>
+    <form class="row g-3">
+        <div class="col-12">
+            <label for="formFile" class="form-label">Select a picture</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <div class="col-md-6">
+            <label for="validationServer01" class="form-label">Name your project</label>
+            <input type="text" class="form-control" id="validationServer01" required>
+        </div>
+        <div class="col-md-6">
+            <label for="exampleFormControlTextarea1" class="form-label">Select the category</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="exampleFormControlTextarea1" class="form-label">Describe your project</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Price</label>
+            <input type="text" class="form-control" id="validationCustom01" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">External link</label>
+            <input type="text" class="form-control" id="validationCustom02" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustomUsername" class="form-label">Project keywords</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">#</span>
+                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+            </div>
+        </div>
+
+        <div class="col-12 d-flex">
+            <label for="validationCustom02" class="form-label">Accept personalized extended development?</label>
+            <div class="form-check ms-2">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check ms-2">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    No
+                </label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="">List of requirements and information for the project:</h6>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Business information
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Business pictures
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Business visual identification
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Products price database
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex position-relative">
+                    <div class="col-md-6">
+                        <label for="validationCustom01" class="form-label">Add more</label>
+                        <input type="text" class="form-control" id="validationCustom01">
+                    </div>
+                    <div class="col-md-6 position-absolute top-50 end-0 translate-middle-y">
+                        <button class="btn btn-primary" type="button">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                <label class="form-check-label" for="invalidCheck3">
+                    Agree to terms and conditions
+                </label>
+                <div id="invalidCheck3Feedback" class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+</div>
