@@ -23,17 +23,17 @@
         <form class="row g-3" method="post" action="/">
             <div class="col-md-4">
                 <label for="validationServer01" class="form-label">First name</label>
-                <input type="text" class="form-control" id="validationServer01" required>
+                <input type="text" class="form-control" name="firstName" id="validationServer01" required>
             </div>
             <div class="col-md-4">
                 <label for="validationServer02" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="validationServer02" required>
+                <input type="text" class="form-control" name="lastName" id="validationServer02" required>
             </div>
             <div class="col-md-4">
                 <label for="validationServerUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="email" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                    <input type="email" class="form-control" id="validationServerUsername" name="username" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         Please choose an email.
                     </div>
@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-6">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
             </div>
             <div class="col-md-6">
                 <label for="exampleInputPassword1" class="form-label">Confirm password</label>
@@ -49,22 +49,22 @@
             </div>
             <div class="col-md-6">
                 <label for="inputBank" class="form-label">Bank name</label>
-                <input type="text" class="form-control" id="inputBank">
+                <input type="text" class="form-control" id="inputBank" name="bank">
             </div>
             <div class="col-md-6">
                 <label for="inputIBAN" class="form-label">IBAN</label>
-                <input type="text" class="form-control" id="inputIBAN">
+                <input type="text" class="form-control" id="inputIBAN" name="iban">
             </div>
             <div class="col-md-6">
                 <label for="validationServer03" class="form-label">City</label>
-                <input type="text" class="form-control" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+                <input type="text" class="form-control" id="validationServer03" name="city" aria-describedby="validationServer03Feedback" required>
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
             <div class="col-md-3">
                 <label for="validationServer04" class="form-label">State</label>
-                <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                <select class="form-select" id="validationServer04" name="state" aria-describedby="validationServer04Feedback" required>
                     <option selected disabled value="">Choose...</option>
                     <option>...</option>
                 </select>
@@ -74,7 +74,7 @@
             </div>
             <div class="col-md-3">
                 <label for="validationServer05" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+                <input type="text" class="form-control" id="validationServer05" name="zip" aria-describedby="validationServer05Feedback" required>
                 <div id="validationServer05Feedback" class="invalid-feedback">
                     Please provide a valid zip.
                 </div>
