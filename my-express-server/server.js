@@ -22,7 +22,7 @@ app.set('view engine', 'handlebars');
 app.set('views', './public');
 
 //config body parser
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //config routes
@@ -35,5 +35,3 @@ mongoose.connect("mongodb+srv://admin:ATGP11db@cluster0.hkmhc.mongodb.net/atgpdb
         });
     })
     .catch((err) => console.log(err))
-
-

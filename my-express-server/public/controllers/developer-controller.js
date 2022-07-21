@@ -1,32 +1,27 @@
-const Developer = require("../models/developer");
+const Developer = require("../models/Developer");
 
-exports.createDeveloper = function (req, res) {
-    let newdev = new Developer(req.body);
-    newdev.save(function (err, developer) {
+exports.createDeveloper = async function (req, res) {
+    const newDev = new Developer(req.body);
+    console.log(newDev)
+    //await Developer.remove()
+    await newDev.save(function (err) {
         if (err) {
-            res.status(400).json(err);
+
+            res.status(400).json({ Mensage: err });
         }
-        res.json(developer);
+        res.redirect('proposal');
     });
 };
 
-exports.getDeveloper = function (req, res) {
-    Developer.find({}, function (err, developer) {
-        if (err) {
-            res.status(400).json(err);
-        }
-        res.json(developer);
-    });
-};
-
-exports.getDeveloper = function (req, res) {
-    Developer.findOne({ _id: req.params.id }, function
-        (err, customer) {
-        if (err) {
-            res.status(400).json(err);
-        }
-        res.json(developer);
-    });
+exports.getDeveloper = async function (req, res) {
+    const devs = await Developer.find()
+    res.json(devs)
+    // await Dev.find({}, function (err, developer) {
+    //     if (err) {
+    //         res.status(400).json(err);
+    //     }
+    //     res.json(developer);
+    // });
 };
 
 exports.updateDeveloper = function (req, res) {
