@@ -1,27 +1,48 @@
 const Developer = require("../models/Developer");
 
-exports.createDeveloper = async function (req, res) {
-    const newDev = new Developer(req.body);
-    console.log(newDev)
-    //await Developer.remove()
-    await newDev.save(function (err) {
-        if (err) {
+async function emailAlreadyExists(username) {
+    const q = Developer.find({ username }, function (err, developer) {
+        if (err) return null;
+        return developer
+    });
+}
 
-            res.status(400).json({ Mensage: err });
+exports.createDeveloper = function (req, res) {
+
+    Developer.findOne({ username: req.body.username }, function (err, developer) {
+        if (err) {
+            return res.status(400).json(err);
         }
-        res.redirect('proposal');
+        if (developer != null) {
+            return res.status(400).json({ Mensage: 'Email is already registered.' })
+        }
+        const newDev = new Developer(req.body);
+
+        newDev.save(function (err) {
+            if (err) {
+                return res.status(400).json(err);
+            }
+            res.redirect('proposal');
+        });
     });
 };
 
-exports.getDeveloper = async function (req, res) {
-    const devs = await Developer.find()
-    res.json(devs)
-    // await Dev.find({}, function (err, developer) {
-    //     if (err) {
-    //         res.status(400).json(err);
-    //     }
-    //     res.json(developer);
-    // });
+exports.getAllDevelopers = function (req, res) {
+    Developer.find({}, function (err, developer) {
+        if (err) {
+            res.status(400).json(err);
+        }
+        res.json(developer);
+    });
+};
+
+exports.getDeveloper = function (req, res) {
+    Developer.findOne({ username: req.body.email }, function (err, developer) {
+        if (err) {
+            res.status(400).json(err);
+        }
+        res.json(developer);
+    });
 };
 
 exports.updateDeveloper = function (req, res) {
