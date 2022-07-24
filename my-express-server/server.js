@@ -1,11 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
+
 const path = require('path');
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 
 const routes = require('./routes');
 const devRoutes = require('./routes/DeveloperRoutes')
+const loginRoutes = require('./routes/LoginRoutes')
 
 const app = express();
 
@@ -30,6 +32,7 @@ app.use(bodyParser.json());
 //config routes
 app.use('/', routes);
 app.use('/', devRoutes)
+app.use('/', loginRoutes)
 
 mongoose.connect("mongodb+srv://admin:ATGP11db@cluster0.hkmhc.mongodb.net/atgp")
     .then(() => {
