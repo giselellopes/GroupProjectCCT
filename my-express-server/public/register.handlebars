@@ -5,7 +5,8 @@
         </div>
         <div class="radio-group col-12 row">
             <div class="col-md-6 form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1" checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1"
+                    checked>
                 <label class="form-check-label" for="flexRadioDefault1">
                     Iam a developer
                 </label>
@@ -20,7 +21,7 @@
     </div>
 
     <div id="developer-register">
-        <form class="row g-3" method="post" action="/">
+        <form class="row g-3" action="/register" method="post">
             <div class="col-md-4">
                 <label for="validationServer01" class="form-label">First name</label>
                 <input type="text" class="form-control" name="firstName" id="validationServer01" required>
@@ -33,7 +34,8 @@
                 <label for="validationServerUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="email" class="form-control" id="validationServerUsername" name="username" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                    <input type="email" class="form-control" id="validationServerUsername" name="username"
+                        aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         Please choose an email.
                     </div>
@@ -57,24 +59,27 @@
             </div>
             <div class="col-md-6">
                 <label for="validationServer03" class="form-label">City</label>
-                <input type="text" class="form-control" id="validationServer03" name="city" aria-describedby="validationServer03Feedback" required>
+                <input type="text" class="form-control" id="validationServer03" name="city"
+                    aria-describedby="validationServer03Feedback" required>
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
-            <div class="col-md-3">
+            {{!-- <div class="col-md-3">
                 <label for="validationServer04" class="form-label">State</label>
-                <select class="form-select" id="validationServer04" name="state" aria-describedby="validationServer04Feedback" required>
+                <select class="form-select" id="validationServer04" name="state"
+                    aria-describedby="validationServer04Feedback" required>
                     <option selected disabled value="">Choose...</option>
                     <option>...</option>
                 </select>
                 <div id="validationServer04Feedback" class="invalid-feedback">
                     Please select a valid state.
                 </div>
-            </div>
+            </div> --}}
             <div class="col-md-3">
                 <label for="validationServer05" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="validationServer05" name="zip" aria-describedby="validationServer05Feedback" required>
+                <input type="text" class="form-control" id="validationServer05" name="zip"
+                    aria-describedby="validationServer05Feedback" required>
                 <div id="validationServer05Feedback" class="invalid-feedback">
                     Please provide a valid zip.
                 </div>
@@ -85,7 +90,8 @@
             </div>
             <div class="col-12">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3"
+                        aria-describedby="invalidCheck3Feedback" required>
                     <label class="form-check-label" for="invalidCheck3">
                         Agree to terms and conditions
                     </label>
@@ -101,7 +107,7 @@
     </div>
 
     <div id="customer-register" style="display: none">
-        <form class="row g-3" method="post" action="/">
+        <form class="row g-3" method="post" action="/aaa">
             <div class="col-md-4">
                 <label for="validationServer01" class="form-label">First name</label>
                 <input type="text" class="form-control" id="validationServer01" required>
@@ -114,7 +120,8 @@
                 <label for="validationServerUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="email" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                    <input type="email" class="form-control" id="validationServerUsername"
+                        aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         Please choose an email.
                     </div>
@@ -147,14 +154,16 @@
             </div>
             <div class="col-md-6">
                 <label for="validationServer03" class="form-label">City</label>
-                <input type="text" class="form-control" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+                <input type="text" class="form-control" id="validationServer03"
+                    aria-describedby="validationServer03Feedback" required>
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
             <div class="col-md-3">
                 <label for="validationServer04" class="form-label">State</label>
-                <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback"
+                    required>
                     <option selected disabled value="">Choose...</option>
                     <option>...</option>
                 </select>
@@ -164,14 +173,16 @@
             </div>
             <div class="col-md-3">
                 <label for="validationServer05" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+                <input type="text" class="form-control" id="validationServer05"
+                    aria-describedby="validationServer05Feedback" required>
                 <div id="validationServer05Feedback" class="invalid-feedback">
                     Please provide a valid zip.
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3"
+                        aria-describedby="invalidCheck3Feedback" required>
                     <label class="form-check-label" for="invalidCheck3">
                         Agree to terms and conditions
                     </label>
@@ -189,8 +200,8 @@
 
 <script>
     let radios = document.getElementsByName("flexRadioDefault");
-    for(const radio of radios) {
-        radio.onclick = function(event) {
+    for (const radio of radios) {
+        radio.onclick = function (event) {
             if (event.target.value == 1) {
                 document.getElementById("customer-register").style.cssText = "display: none"
                 document.getElementById("developer-register").style.cssText = "display: inline"
