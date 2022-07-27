@@ -104,48 +104,48 @@
             <ul id="charactersList"></ul>
         </div>
     <script>
-			const charactersList = document.getElementById('charactersList');
-const searchBar = document.getElementById('searchBar');
-let hpCharacters = [];
+		const charactersList = document.getElementById('charactersList');
+		const searchBar = document.getElementById('searchBar');
+		let hpCharacters = [];
 
-searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value.toLowerCase();
+		searchBar.addEventListener('keyup', (e) => {
+			const searchString = e.target.value.toLowerCase();
 
-    const filteredCharacters = hpCharacters.filter((character) => {
-        return (
-            character.name.toLowerCase().includes(searchString) ||
-            character.email.toLowerCase().includes(searchString)
-        );
-    });
-    displayCharacters(filteredCharacters);
-});
+			const filteredCharacters = hpCharacters.filter((character) => {
+				return (
+					character.name.toLowerCase().includes(searchString) ||
+					character.email.toLowerCase().includes(searchString)
+				);
+			});
+			displayCharacters(filteredCharacters);
+		});
 
-const loadCharacters = async () => {
-    try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/users?fbclid=IwAR0nfiT3i765Zbeba5JhR-eCXzRZ5_hFEcvE9nLTHm1qsfTX85URaoTVA8g');
-        hpCharacters = await res.json();
-        displayCharacters(hpCharacters);
-    } catch (err) {
-        console.error(err);
-    }
-};
+		const loadCharacters = async () => {
+			try {
+				const res = await fetch('https://jsonplaceholder.typicode.com/users?fbclid=IwAR0nfiT3i765Zbeba5JhR-eCXzRZ5_hFEcvE9nLTHm1qsfTX85URaoTVA8g');
+				hpCharacters = await res.json();
+				displayCharacters(hpCharacters);
+			} catch (err) {
+				console.error(err);
+			}
+		};
 
-const displayCharacters = (characters) => {
-    const htmlString = characters
-        .map((character) => { 
-            return `
-            <li class="character">
-                <h2>${character.name}</h2> <br />
-                
-                <p>email: ${character.email}</p> <br />
-            </li>
-        `;
-        })
-        .join('');
-    charactersList.innerHTML = htmlString;
-};
+		const displayCharacters = (characters) => {
+			const htmlString = characters
+				.map((character) => { 
+					return `
+					<li class="character">
+						<h2>${character.name}</h2> <br />
+						
+						<p>email: ${character.email}</p> <br />
+					</li>
+				`;
+				})
+				.join('');
+			charactersList.innerHTML = htmlString;
+		};
 
-loadCharacters();
+		loadCharacters();
 
 		</script>
 </body>
