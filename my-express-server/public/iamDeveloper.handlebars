@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<style>
+ body{
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+  padding: 0;
+}
+nav{
+  background-color:#fff;
+  border-bottom: .13em solid #67809F;
+  font-weight: bold;
+  box-shadow: 0 0 .3em #333;
+}
+h1{
+  font-family: "ubuntu", sans-serif;
+  font-size: 2em;
+}
+h2{
+  font-family: "ubuntu", sans-serif;
+  font-size: 1.8em;
+}
+h3{
+  font-family: "ubuntu", sans-serif;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+h4{
+  font-size: 1em;
+  font-weight: bold;
+}
+a{
+  color: #444;
+}
+i{
+  padding: .3em;
+}
+.navbar-brand{
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5em; 
+  font-weight: bold;
+  vertical-align: middle;
+}
+.proj{
+  padding: 1em 0em;
+  max-width: 100%;
+}
+.form-control{
+  margin: .2em;
+}
+#main{
+  text-align: center;
+  padding: 0;
+}
+#aboutPage, #projectPage, #contactPage{
+  margin: 0;
+  padding-top: 5em;
+  padding-bottom: 0em;
+  position: relative;
+  min-height: 95vh;
+}
+#projectPage {
+  background-color: #67809F;
+}
+#grid{
+  padding: 0 4.5em;
+  max-width: 70em;
+}
+#contactForm{
+  max-width: 50em;
+  padding: 1em 3em;
+  border: .13em solid #67809F;
+  text-align: left;
+  font-weight: bold;
+  font-size: .9em;
+}
+#submit {
+  padding: 0;
+}
+#credits{
+  background-color: #67809F;
+  padding: .2em;
+  font-size: .8em;
+  font-weight: bold;
+  text-align: center;
+}
+*[role="downPage"], *[role="upPage"] {
+  width: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  position: absolute;
+  bottom: 0;
+}
+*[role="text"]{
+  text-align: left;
+}
+
+/* Link Animations *
+*******************/
+.active {
+  background-color:#c0d9f8;
+}
+/*.navbar-toggler:hover, .nav > li > a:hover{
+   background-color: #c0d9f8; 
+}*/
+a.icon:link, a.icon:visited{
+  padding: .75em .5em .25em .5em;
+  color: #67809F;
+}
+a.icon:hover{
+  padding: .75em .5em .25em .5em;
+  color: #333;
+  background-color: #c0d9f8;
+}
+img.proj {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+img.proj:hover {
+  filter: none; /* IE6-9 */
+  -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
+ 
+}
+.btn-secondary:hover{
+  background-color:#c0d9f8;
+}
+
+/* Flexible Design- adjustments for screen sizes *
+**************************************************/
+@media (max-width: 768px) {
+  /* Shrinks font automatically for smaller screens, make sure all fonts are sized in em units.*/
+  body{
+    font-size: 80%;
+  }
+  /* This code gets rid of the bottom page arrows on very small screens, because they aren't as neat when they aren't properly sitting at the bottom of the screen. */
+  *[role="downPage"] {
+    display: none;
+  } 
+}
+@media (max-width: 576px){
+  #skills{
+    text-align: center;
+  }
+  small{
+    display: none;
+  }
+}
+/* Increases font sizes on xxl screens (full screen hi-def desktops & larger) */
+@media (min-width: 1920px) {
+  body{
+    font-size: 120%;
+  }
+}
+</style>
+<nav id="mainNav" class="navbar navbar-toggleable-md fixed-top navbar-light">
+  
+    <div class="navbar-header">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Name</a>
+    </div> <!-- end navbar header-->
+  
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="#aboutPage">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projectPage">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contactPage">Contact</a></li>
+      </ul>
+    </div> <!-- end navbar collapse -->
+ 
+</nav> <!-- end navbar -->
+
+
+<main class="container-fluid" id="main"> 
+  
+<!-- BEGIN INTRO PAGE -->
+  <div class="container-fluid" id="aboutPage">
+    <div class="container">
+      <h1>Full Name Here</h1>
+      <hr>
+      
+          <a class="icon" href="#"><i class="fa fa-github fa-2x"></i></a> 
+          <a class="icon" href="#"><i class="fa fa-free-code-camp fa-2x"></i></a> 
+          <a class="icon" href="#"><i class="fa fa-linkedin fa-2x"></i></a> <br>
+      
+      <p>This is a practice portfolio made for the FreeCodeCamp exercise.<br>It will be updated when I have more to put in a portfolio.</p>
+    </div> <!-- end heading -->
+      
+      <div class="container center">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4 col-sm-6">
+          <img class="img-fluid" src="https://www.placehold.it/400x350" alt="Coming Soon" id="aboutImg"> 
+        </div>
+        <div class="col-lg-4 col-sm-6" role="text" id="skills">
+          <h3>Skills</h3>
+          <h4>Languages</h4>
+          <p>HTML, CSS <small class"text-muted">&emsp; &emsp; Learning: Javascript, Python</small></P>
+          <h4>Tools</h4>
+          <p>Bootstrap <small class"text-muted">&emsp; &emsp; Learning: jQuery</small></P>
+          <h4>Operating Systems</h4>
+          <p>Windows, Linux</p>
+          <p></P>
+        </div>
+      </div> <!-- end row -->
+    </div>
+      
+      <a href="#projectPage"><img class="img-responsive" role="downPage" src="https://image.flaticon.com/icons/svg/120/120894.svg"></a>
+    
+  </div> <!-- end aboutPage -->
+  
+  <!-- BEGIN PROJECT PAGE -->
+  <div class="container-fluid" id="projectPage">
+    <div class="container">
+      <h2>Projects</h2>
+      <hr> 
+    </div>
+    
+    <div class="container-fluid" id="grid">
+    <div class="row"> 
+      <div class="col-md-4 col-sm-6"> <a href="#"><img class="img-responsive proj" src="https://www.placehold.it/900x600/96281b/ec644b.png" alt="Coming Soon"></a> </div>
+      <div class="col-md-4 col-sm-6"> <a href="#"><img class="img-responsive proj" src="https://www.placehold.it/900x600/96281b/ec644b.png" alt="Coming Soon"></a> </div>
+      <div class="col-md-4 col-sm-6"> <a href="#"><img class="img-responsive proj" src="https://www.placehold.it/900x600/96281b/ec644b.png" alt="Coming Soon"></a> </div>
+      <div class="col-md-4 col-sm-6"> <a href="#"><img class="img-responsive proj" src="https://www.placehold.it/900x600/96281b/ec644b.png" alt="Coming Soon"></a> </div>
+      <div class="col-md-4 col-sm-6"> <a href="#"><img class="img-responsive proj" src="https://www.placehold.it/900x600/96281b/ec644b.png" alt="Coming Soon"></a> </div>
+      <div class="col-md-4 col-sm-6"> <a href="#"><img class="img-responsive proj" src="https://www.placehold.it/900x600/96281b/ec644b.png" alt="Coming Soon"></a> </div>
+    </div>
+    </div>
+    
+    <a href="#contactPage"><img class="img-fluid" role="downPage" src="https://image.flaticon.com/icons/svg/120/120894.svg"></a>
+  </div> <!-- end projectPage-->
+
+<!-- BEGIN CONTACT PAGE -->
+  <div class="container-fluid" id="contactPage">
+    <div class="container">
+      <h2>Get in touch</h2>
+      <hr>
+      <p>
+        <a class="icon" href="#"><i class="fa fa-envelope-o fa-2x"></i></a>
+        <a class="icon" href="#"><i class="fa fa-twitter fa-2x"></i></a>
+        <a class="icon" href="#"><i class="fa fa-skype fa-2x"></i></a>
+      </p>
+      <p> Want to work together?  Let me know here! </p>
+    </div>  <!-- end heading -->
+    
+    <div class="container-fluid" id="contactForm">
+      <form>
+        
+        <div class="form-group"> 
+              <input type="text" class="form-control" id="cName" placeholder="Name*" required>
+          
+              <input type="email" class="form-control" id="cEemail" placeholder="Email*" required>
+
+              <input type="text" class="form-control" id="cSubject" placeholder="Subject">
+
+              <textarea class="form-control" id="iText" rows="4" placeholder="Describe your project"></textarea>
+              <br>
+              <button  style="float: right" type="submit" class="btn btn-secondary"><i class="fa fa-paper-plane" id="submit"></i> Submit</button> <br>
+          
+        </div>
+      </form> 
+    </div> <!-- end contactForm -->
+    
+    <a href="#aboutPage"><img class="img-fluid" role="upPage" src="https://image.flaticon.com/icons/svg/120/120895.svg"></a>
+  </div> <!-- end contactPage-->
+  <div class="container-fluid" id="credits">
+     <p>Cara V. April 2017,  <a href="#"> Click Here </a>for the final version.... Eventually. </p>
+  </div>
+  <script>
+    $('body').scrollspy({
+  target: '#navbar',
+  offset: 52
+});
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+
+  </script>
+</main>
+</html>
