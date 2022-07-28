@@ -1,0 +1,58 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add connect-flash, passport, passport-local, express-session
+
+PATH: 
+  /home/elisson/.sdkman/candidates/grails/current/bin:/home/elisson/anaconda3/bin:/home/elisson/anaconda3/condabin:/home/elisson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/elisson/.yarn/bin:/home/elisson/.dotnet/tools
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  14.19.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/connect-flash,: Not found
+      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/usr/share/yarn/lib/cli.js:140890:22)
+      at Request.emit (events.js:400:28)
+      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141862:10)
+      at Request.emit (events.js:400:28)
+      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (events.js:519:28)
+      at IncomingMessage.emit (events.js:412:35)
+      at endReadableNT (internal/streams/readable.js:1333:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
+
+npm manifest: 
+  {
+    "name": "my-express-server",
+    "version": "1.0.0",
+    "description": "webapp server",
+    "main": "server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "nodemon server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "body-parser": "^1.20.0",
+      "express": "^4.17.3",
+      "mongo-express": "^1.0.0-alpha.4",
+      "mongoose": "^6.3.4",
+      "express-handlebars": "^6.0.5"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.19",
+      "pstree.remy": "^1.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
