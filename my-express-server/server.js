@@ -31,8 +31,8 @@ app.use(bodyParser.json());
 
 //config routes
 app.use('/', routes);
-app.use('/', devRoutes)
-app.use('/', loginRoutes)
+app.use('/', devRoutes);
+app.use('/', loginRoutes);
 
 mongoose.connect("mongodb+srv://admin:ATGP11db@cluster0.hkmhc.mongodb.net/atgp")
     .then(() => {

@@ -26,7 +26,35 @@ router.get("/create-project", function (req, res) {
 });
 
 router.get("/proposal", ensureAuthenticated, function (req, res) {
-    es.render('proposal')
+    res.render('proposal')
+});
+
+router.get("/about", function (req, res) {
+    res.render('about');
+});
+router.get("/contact", function (req, res) {
+    res.render('contact');
+});
+router.get("/successful", function (req, res) {
+    res.render('successful');
+});
+router.get("/project", function (req, res) {
+    res.render('project');
+});
+router.get("/project2", function (req, res) {
+    res.render('project2');
+});
+router.get("/project3", function (req, res) {
+    res.render('project3');
+});
+router.get("/project3", function (req, res) {
+    res.render('project3');
+});
+router.get("/findDeveloper", function (req, res) {
+    res.render('findDeveloper');
+});
+router.get("/iamDeveloper", function (req, res) {
+    res.render('iamDeveloper');
 });
 
 module.exports = router
