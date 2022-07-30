@@ -1,5 +1,5 @@
 const Developer = require("../models/Developer");
-const hash = require('../utils/HashPassword')
+const { hash } = require('../utils/HashPassword');
 
 const confirmPassword = function (password, confirmPassword) {
 
@@ -8,7 +8,7 @@ const confirmPassword = function (password, confirmPassword) {
 
 exports.createDeveloper = function (req, res) {
 
-    Developer.findOne({ username: req.body.username }, async function (err, developer) {
+    Developer.findOne({ email: req.body.email }, async function (err, developer) {
         if (err) {
             return res.status(400).json(err);
         }
@@ -20,8 +20,10 @@ exports.createDeveloper = function (req, res) {
         }
         const newDev = new Developer(req.body);
 
-        newDev.password = await hash(newDev.password)
+        console.log(newDev)
 
+        newDev.password = await hash(newDev.password)
+        // console.log(newDev)
         newDev.save(function (err) {
             if (err) {
                 return res.status(400).json(err);
@@ -41,7 +43,7 @@ exports.getAllDevelopers = function (req, res) {
 };
 
 exports.getDeveloper = function (req, res) {
-    Developer.findOne({ username: req.body.email }, function (err, developer) {
+    Developer.findOne({ email: req.body.email }, function (err, developer) {
         if (err) {
             res.status(400).json(err);
         }

@@ -1,32 +1,35 @@
 const Developer = require("../models/Developer");
-const verify = require('../utils/HashPassword');
+const Customer = require("../models/Customer");
+const { verify } = require('../utils/HashPassword');
+
 const generateToken = require('../utils/GenerateToken');
 
 const LocalStorage = require('node-localstorage').LocalStorage;
 
-exports.logon = function (req, res) {
-    Developer.findOne({ username: req.body.email }, async function (err, developer) {
-        if (err) {
-            return res.status(400).json(err);
-        }
-        if (developer == null) {
-            return res.status(400).json({ Mensage: 'Username or password incorrect!' })
-        }
-        const passwordMatch = await verify(req.body.password, developer.password);
+exports.logon = async function (req, res) {
+    let user = await Developer.findOne({ "email": req.body.email });
+    let redirect = 'proposal';
 
-        if (!passwordMatch) {
-            return res.status(400).json({ Mensage: 'Username or password incorrect!' })
-        }
+    if (!user) {
+        user = await Customer.findOne({ "email": req.body.email });
+        redirect = 'findDeveloper';
+    }
 
-        token = generateToken(developer.id, developer.email);
+    if (!user) {
+        return res.status(400).json({ Mensage: 'Email or password incorrect!' })
+    }
 
-        console.log(token)
-        console.log(process.env.TOKEN_KEY);
-        console.log('------------------');
+    const passwordMatch = await verify(req.body.password, user.password);
 
-        const localStorage = new LocalStorage('./scratch');
-        localStorage.setItem('token', token)
+    if (!passwordMatch) {
+        return res.status(400).json({ Mensage: 'Email or password incorrect!' })
+    }
 
-        res.redirect('proposal');
-    });
+    console.log(user)
+    token = generateToken(user.id, user.email);
+
+    const localStorage = new LocalStorage('./scratch');
+    localStorage.setItem('token', token)
+
+    res.redirect(redirect);
 }

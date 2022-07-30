@@ -6,8 +6,9 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 
 const routes = require('./routes');
-const devRoutes = require('./routes/DeveloperRoutes')
-const loginRoutes = require('./routes/LoginRoutes')
+const devRoutes = require('./routes/DeveloperRoutes');
+const customerRoutes = require('./routes/CustomerRoutes');
+const loginRoutes = require('./routes/LoginRoutes');
 
 const app = express();
 
@@ -32,12 +33,16 @@ app.use(bodyParser.json());
 //config routes
 app.use('/', routes);
 app.use('/', devRoutes);
+app.use('/', customerRoutes);
 app.use('/', loginRoutes);
 
-mongoose.connect("mongodb+srv://admin:ATGP11db@cluster0.hkmhc.mongodb.net/atgp")
-    .then(() => {
+mongoose.connect("mongodb+srv://admin:ATGP11db@cluster0.hkmhc.mongodb.net/atgpdb2")
+    .then(async () => {
         app.listen(3000, function () {
             console.log("Server started on port 3000")
         });
+
+        //const Developer = require("./public/models/Developer");
+        //await Developer.deleteMany({})
     })
     .catch((err) => console.log(err))

@@ -9,11 +9,11 @@ const customerSchema = new mongoose.Schema({
         type: String,
         enum: ['visa', 'mastercard', 'elo']
     },
-    lastFourDIgits: Number,
+    cardNumber: String,
     cardHolder: String,
-    address: String,
-    phone: Number
-
+    city: String,
+    state: String,
+    zip: String
 });
 
 module.exports = mongoose.model('Customer', customerSchema);

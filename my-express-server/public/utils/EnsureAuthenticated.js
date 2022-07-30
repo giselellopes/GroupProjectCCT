@@ -1,10 +1,12 @@
-const verify = require("jsonwebtoken");
+const { verify } = require("jsonwebtoken");
 
 const LocalStorage = require('node-localstorage').LocalStorage;
 
-module.exports = function ensureAuthenticated(req, res, next) {
+module.exports = async function ensureAuthenticated(req, res, next) {
     const localStorage = new LocalStorage('./scratch');
     const token = localStorage.getItem('token');
+
+    console.log(token)
 
     if (!token) {
         console.log('Token is missing.');
@@ -16,9 +18,6 @@ module.exports = function ensureAuthenticated(req, res, next) {
 
         return next();
     } catch (err) {
-        console.log(token)
-        console.log(process.env.TOKEN_KEY);
-        console.log('Invalid token!');
         res.redirect('login');
     }
 }
