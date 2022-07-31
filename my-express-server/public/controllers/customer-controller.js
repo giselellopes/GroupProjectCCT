@@ -12,8 +12,6 @@ exports.createCustomer = function (req, res) {
             return res.status(400).json(err);
         }
 
-        console.log('aaa ', customer)
-
         if (customer != null) {
             return res.status(400).json({ Mensage: 'Email is already registered.' })
         }
@@ -21,7 +19,6 @@ exports.createCustomer = function (req, res) {
             return res.status(300).json({ Mensage: 'Passwords do not match' })
         }
 
-        console.log(req.body)
         const newCustomer = new Customer(req.body);
 
         newCustomer.password = await hash(newCustomer.password);

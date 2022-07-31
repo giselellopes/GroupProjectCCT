@@ -9,6 +9,7 @@ const routes = require('./routes');
 const devRoutes = require('./routes/DeveloperRoutes');
 const customerRoutes = require('./routes/CustomerRoutes');
 const loginRoutes = require('./routes/LoginRoutes');
+const projectRoutes = require('./routes/ProjectRoutes');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use('/', routes);
 app.use('/', devRoutes);
 app.use('/', customerRoutes);
 app.use('/', loginRoutes);
+app.use('/', projectRoutes);
 
 mongoose.connect("mongodb+srv://admin:ATGP11db@cluster0.hkmhc.mongodb.net/atgpdb2")
     .then(async () => {
@@ -42,7 +44,7 @@ mongoose.connect("mongodb+srv://admin:ATGP11db@cluster0.hkmhc.mongodb.net/atgpdb
             console.log("Server started on port 3000")
         });
 
-        //const Developer = require("./public/models/Developer");
-        //await Developer.deleteMany({})
+        //const Customer = require("./public/models/Customer");
+        //await Customer.deleteMany({})
     })
     .catch((err) => console.log(err))

@@ -7,6 +7,9 @@ const ensureAuthenticated = require('../public/utils/EnsureAuthenticated');
 
 //routes for login
 router.get("/", function (req, res) {
+    const localStorage = new LocalStorage('./scratch');
+    localStorage._deleteLocation();
+
     res.render('index');
 });
 
@@ -50,7 +53,7 @@ router.get("/project3", function (req, res) {
 router.get("/project3", function (req, res) {
     res.render('project3');
 });
-router.get("/findDeveloper", function (req, res) {
+router.get("/findDeveloper", ensureAuthenticated, function (req, res) {
     res.render('findDeveloper');
 });
 router.get("/iamDeveloper", function (req, res) {

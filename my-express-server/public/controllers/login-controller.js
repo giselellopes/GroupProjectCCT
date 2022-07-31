@@ -25,11 +25,11 @@ exports.logon = async function (req, res) {
         return res.status(400).json({ Mensage: 'Email or password incorrect!' })
     }
 
-    console.log(user)
     token = generateToken(user.id, user.email);
 
     const localStorage = new LocalStorage('./scratch');
-    localStorage.setItem('token', token)
+    localStorage.setItem('token', token);
+    localStorage.setItem('logedUser', user.email);
 
     res.redirect(redirect);
 }

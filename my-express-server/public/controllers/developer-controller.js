@@ -20,8 +20,6 @@ exports.createDeveloper = function (req, res) {
         }
         const newDev = new Developer(req.body);
 
-        console.log(newDev)
-
         newDev.password = await hash(newDev.password)
         // console.log(newDev)
         newDev.save(function (err) {

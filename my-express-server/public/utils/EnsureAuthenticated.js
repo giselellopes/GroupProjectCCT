@@ -6,8 +6,6 @@ module.exports = async function ensureAuthenticated(req, res, next) {
     const localStorage = new LocalStorage('./scratch');
     const token = localStorage.getItem('token');
 
-    console.log(token)
-
     if (!token) {
         console.log('Token is missing.');
         res.redirect('login');

@@ -2,55 +2,52 @@
     <div class="col-12">
         <h4 class="register-title">Create a new project</h4>
     </div>
-    <form class="row g-3">
+    <form class="row g-3" enctype="multipart/form-data" method="post" , action="/projects">
         <div class="col-12">
             <label for="formFile" class="form-label">Select a picture</label>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" id="formFile" name="image" required>
         </div>
         <div class="col-md-6">
-            <label for="validationServer01" class="form-label">Name your project</label>
-            <input type="text" class="form-control" id="validationServer01" required>
+            <label for="title" class="form-label">Name your project</label>
+            <input type="text" class="form-control" id="title" name="title" required>
         </div>
         <div class="col-md-6">
-            <label for="exampleFormControlTextarea1" class="form-label">Select the category</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <label for="subtitle" class="form-label">Subtitle your project</label>
+            <input type="text" class="form-control" id="subtitle" name="subtitle" required>
         </div>
         <div class="col-12">
-            <label for="exampleFormControlTextarea1" class="form-label">Describe your project</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="description" class="form-label">Describe your project</label>
+            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
         </div>
         <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">Price</label>
-            <input type="text" class="form-control" id="validationCustom01" required>
+            <label for="price" class="form-label">Price</label>
+            <input type="text" class="form-control" id="price" name="price" required>
         </div>
         <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">External link</label>
-            <input type="text" class="form-control" id="validationCustom02" required>
+            <label for="external-link" class="form-label">External link</label>
+            <input type="text" class="form-control" id="external-link" name="externalLink" required>
         </div>
         <div class="col-md-4">
             <label for="validationCustomUsername" class="form-label">Project keywords</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">#</span>
-                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" id="validationCustomUsername"
+                    aria-describedby="inputGroupPrepend" name="techs" required>
             </div>
         </div>
 
         <div class="col-12 d-flex">
             <label for="validationCustom02" class="form-label">Accept personalized extended development?</label>
             <div class="form-check ms-2">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="personalizedExtendedDevelopment"
+                    id="personalized-extended-development-yes">
+                <label class="form-check-label" for="personalized-extended-development-yes">
                     Yes
                 </label>
             </div>
             <div class="form-check ms-2">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
+                <input class="form-check-input" type="radio" id="personalized-extended-development-no" checked>
+                <label class="form-check-label" for="personalized-extended-development-no">
                     No
                 </label>
             </div>
@@ -63,31 +60,35 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value=checked id="flexCheckDefault"
+                            name="businessInformation">
                         <label class="form-check-label" for="flexCheckDefault">
                             Business information
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <input class="form-check-input" type="checkbox" value=checked id="flexCheckChecked"
+                            name="businessPictures">
                         <label class="form-check-label" for="flexCheckChecked">
                             Business pictures
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value=checked id="flexCheckDefault"
+                            name="businessVisualIdentification">
                         <label class="form-check-label" for="flexCheckDefault">
                             Business visual identification
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <input class="form-check-input" type="checkbox" value=checked id="flexCheckChecked"
+                            name="productspriceDatabase">
                         <label class="form-check-label" for="flexCheckChecked">
                             Products price database
                         </label>
                     </div>
                 </div>
-                <div class="col-md-6 d-flex position-relative">
+                {{!-- <div class="col-md-6 d-flex position-relative">
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Add more</label>
                         <input type="text" class="form-control" id="validationCustom01">
@@ -95,13 +96,14 @@
                     <div class="col-md-6 position-absolute top-50 end-0 translate-middle-y">
                         <button class="btn btn-primary" type="button">Add</button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
-        <hr/>
+        <hr />
         <div class="col-12">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck3"
+                    aria-describedby="invalidCheck3Feedback" required>
                 <label class="form-check-label" for="invalidCheck3">
                     Agree to terms and conditions
                 </label>

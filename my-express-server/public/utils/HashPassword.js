@@ -1,7 +1,6 @@
 crypto = require("crypto")
 
 exports.hash = async function (password) {
-    console.log(password)
     const hash = await new Promise((resolve, reject) => {
         const salt = crypto.randomBytes(16).toString("hex")
 
@@ -16,7 +15,6 @@ exports.hash = async function (password) {
 }
 
 exports.verify = async function (password, hash) {
-    console.log('aaa')
     return await new Promise((resolve, reject) => {
         const [salt, key] = hash.split(":")
         crypto.scrypt(password, salt, 64, (err, derivedKey) => {
