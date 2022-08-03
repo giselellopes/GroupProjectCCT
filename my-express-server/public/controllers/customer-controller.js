@@ -23,8 +23,6 @@ exports.createCustomer = function (req, res) {
 
         newCustomer.password = await hash(newCustomer.password);
 
-        console.log(newCustomer)
-
         newCustomer.save(function (err) {
             if (err) {
                 return res.status(400).json(err);

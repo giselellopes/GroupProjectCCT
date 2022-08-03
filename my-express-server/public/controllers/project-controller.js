@@ -1,76 +1,79 @@
 const Project = require("../models/Project");
-const generateToken = require('../utils/GenerateToken');
 
 const LocalStorage = require('node-localstorage').LocalStorage;
 
+const newProject = (req) => {
+    const localStorage = new LocalStorage('./scratch');
+    const dev_email = localStorage.getItem('logedUser');
+
+    requirements = [];
+
+    requirements.push(req.body.businessInformation == 'checked');
+    requirements.push(req.body.businessPictures == 'checked');
+    requirements.push(req.body.businessVisualIdentification == 'checked');
+    requirements.push(req.body.productspriceDatabase == 'checked');
+
+    return new Project({
+        title: req.body.title,
+        subtitle: req.body.subtitle,
+        filename: req.file.filename,
+        description: req.body.description,
+        techs: req.body.techs.split(','),
+        price: req.body.price,
+        externalLink: req.body.externalLink,
+        personalizedExtendedDevelopment: req.body.personalizedExtendedDevelopment,
+        requirements,
+        dev_email,
+    });
+}
+
 exports.createProject = function (req, res) {
+    const file = req.file;
+    console.log(file)
     if (req.file) {
-        const localStorage = new LocalStorage('./scratch');
-        const dev_email = localStorage.getItem('logedUser');
-
-        const body = req.body;
-
-        requirements = [];
-
-        requirements.push(body.businessInformation == 'checked');
-        requirements.push(body.businessPictures == 'checked');
-        requirements.push(body.businessVisualIdentification == 'checked');
-        requirements.push(body.productspriceDatabase == 'checked');
-
-        const newProject = new Project({
-            title: body.title,
-            subtitle: body.subtitle,
-            description: body.description,
-            techs: body.techs.split(','),
-            price: body.price,
-            externalLink: body.externalLink,
-            personalizedExtendedDevelopment: body.personalizedExtendedDevelopment,
-            requirements,
-            dev_email,
-        });
-
-        newProject.save(function (err) {
+        return newProject(req).save(function (err) {
             if (err) {
                 return res.status(400).json(err);
             }
-            res.redirect('create-project');
+            return res.redirect('create-project');
         });
     }
     return res.json({ Mensage: 'Choose a valid file.' })
 };
 
-exports.getAllDevelopers = function (req, res) {
-    Developer.find({}, function (err, developer) {
+exports.getAllProjects = function (req, res) {
+    Project.find({}, function (err, project) {
         if (err) {
             res.status(400).json(err);
         }
-        res.json(developer);
+        res.json(project);
     });
 };
 
-exports.getDeveloper = function (req, res) {
-    Developer.findOne({ email: req.body.email }, function (err, developer) {
+exports.getProject = function (req, res) {
+    Project.findOne({ email: req.body.email }, function (err, project) {
         if (err) {
             res.status(400).json(err);
         }
-        res.json(developer);
+        res.json(project);
     });
 };
 
-exports.updateDeveloper = function (req, res) {
-    Developer.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, function (err, customer) {
-        if (err) {
-            res.status(400).json(err);
-        }
-        res.json(developer);
-    });
+exports.updateProject = function (req, res) {
+    Project.findOneAndUpdate({ _id: req.params.id }, req.body,
+        { new: true }, function (err, project) {
+            if (err) {
+                res.status(400).json(err);
+            }
+            res.json(project);
+        });
 };
 
-exports.deleteDeveloper = function (req, res) {
-    Developer.findByIdAndRemove(req.params.id, function (err, developer) {
+exports.deleteProject = function (req, res) {
+    Project.findByIdAndRemove(req.params.id, function (err, project) {
         if (err) {
             res.status(400).json(err);
         }
-        res.json(developer);
+        res.json(project);
     });
 };

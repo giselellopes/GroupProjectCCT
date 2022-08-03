@@ -21,7 +21,7 @@ exports.createDeveloper = function (req, res) {
         const newDev = new Developer(req.body);
 
         newDev.password = await hash(newDev.password)
-        // console.log(newDev)
+
         newDev.save(function (err) {
             if (err) {
                 return res.status(400).json(err);

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const projectSchema = new mongoose.Schema({
     title: String,
     subtitle: String,
+    filename: String,
     description: String,
     createdAt: { type: Date, default: Date.now() },
     techs: [String],
