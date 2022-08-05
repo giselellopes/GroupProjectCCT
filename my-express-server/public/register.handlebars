@@ -1,3 +1,95 @@
+<style>
+    *, *::after, *::before {
+  box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  top: 20%;
+  left: 0;
+  right:0;
+  margin:0 auto;
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 100;
+  background-color: white;
+  width: 600px;
+  max-width: 80%;
+  height:350px;
+ 
+}
+
+.active {
+  display: block;
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 0px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  
+}
+
+.modal-body .buttonTwo{
+    height: 50px;
+    width: 6px;
+    border: 0;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: linear;
+    cursor: pointer;
+}
+.red-btn{
+    background-color: red;
+}
+.gray-btn{
+    background-color: black;
+}
+.btnTwo.hover{
+    opacity: .6;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -5,8 +97,7 @@
         </div>
         <div class="radio-group col-12 row">
             <div class="col-md-6 form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1"
-                    checked>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1" checked>
                 <label class="form-check-label" for="flexRadioDefault1">
                     Iam a developer
                 </label>
@@ -21,7 +112,7 @@
     </div>
 
     <div id="developer-register">
-        <form class="row g-3" action="/register" method="post"></form>
+        <form class="row g-3" method="post" action="/">
             <div class="col-md-4">
                 <label for="validationServer01" class="form-label">First name</label>
                 <input type="text" class="form-control" name="firstName" id="validationServer01" required>
@@ -34,8 +125,7 @@
                 <label for="validationServerUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="email" class="form-control" id="validationServerUsername" name="username"
-                        aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                    <input type="email" class="form-control" id="validationServerUsername" name="username" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         Please choose an email.
                     </div>
@@ -59,27 +149,24 @@
             </div>
             <div class="col-md-6">
                 <label for="validationServer03" class="form-label">City</label>
-                <input type="text" class="form-control" id="validationServer03" name="city"
-                    aria-describedby="validationServer03Feedback" required>
+                <input type="text" class="form-control" id="validationServer03" name="city" aria-describedby="validationServer03Feedback" required>
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
-            {{!-- <div class="col-md-3">
+            <div class="col-md-3">
                 <label for="validationServer04" class="form-label">State</label>
-                <select class="form-select" id="validationServer04" name="state"
-                    aria-describedby="validationServer04Feedback" required>
+                <select class="form-select" id="validationServer04" name="state" aria-describedby="validationServer04Feedback" required>
                     <option selected disabled value="">Choose...</option>
                     <option>...</option>
                 </select>
                 <div id="validationServer04Feedback" class="invalid-feedback">
                     Please select a valid state.
                 </div>
-            </div> --}}
+            </div>
             <div class="col-md-3">
                 <label for="validationServer05" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="validationServer05" name="zip"
-                    aria-describedby="validationServer05Feedback" required>
+                <input type="text" class="form-control" id="validationServer05" name="zip" aria-describedby="validationServer05Feedback" required>
                 <div id="validationServer05Feedback" class="invalid-feedback">
                     Please provide a valid zip.
                 </div>
@@ -90,8 +177,7 @@
             </div>
             <div class="col-12">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3"
-                        aria-describedby="invalidCheck3Feedback" required>
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
                     <label class="form-check-label" for="invalidCheck3">
                         Agree to terms and conditions
                     </label>
@@ -107,7 +193,7 @@
     </div>
 
     <div id="customer-register" style="display: none">
-        <form class="row g-3" method="post" action="/aaa">
+        <form class="row g-3" method="post" action="/">
             <div class="col-md-4">
                 <label for="validationServer01" class="form-label">First name</label>
                 <input type="text" class="form-control" id="validationServer01" required>
@@ -120,8 +206,7 @@
                 <label for="validationServerUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="email" class="form-control" id="validationServerUsername"
-                        aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                    <input type="email" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         Please choose an email.
                     </div>
@@ -154,18 +239,17 @@
             </div>
             <div class="col-md-6">
                 <label for="validationServer03" class="form-label">City</label>
-                <input type="text" class="form-control" id="validationServer03"
-                    aria-describedby="validationServer03Feedback" required>
+                <input type="text" class="form-control" id="validationServer03" aria-describedby="validationServer03Feedback" required>
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
             <div class="col-md-3">
                 <label for="validationServer04" class="form-label">State</label>
-                <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback"
-                    required>
-                    <option selected disabled value="">Choose...</option>
-                    <option>...</option>
+                <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                    <option selected value="">Choose...</option>
+                    <option value="ireland">Ireland</option>
+                    <option value="dublin">Dublin</option>
                 </select>
                 <div id="validationServer04Feedback" class="invalid-feedback">
                     Please select a valid state.
@@ -173,16 +257,14 @@
             </div>
             <div class="col-md-3">
                 <label for="validationServer05" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="validationServer05"
-                    aria-describedby="validationServer05Feedback" required>
+                <input type="text" class="form-control" id="validationServer05" aria-describedby="validationServer05Feedback" required>
                 <div id="validationServer05Feedback" class="invalid-feedback">
                     Please provide a valid zip.
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3"
-                        aria-describedby="invalidCheck3Feedback" required>
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
                     <label class="form-check-label" for="invalidCheck3">
                         Agree to terms and conditions
                     </label>
@@ -196,19 +278,102 @@
             </div>
         </form>
     </div>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+        <div class="title">Terms and conditions</div>
+        <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
+            </p>
+            
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!</p>
+            
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!</p>
+            
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!</p>
+        </div>
+        <h4>I agree to the <span>Terms and Conditions</span></h4>
+        <div class="buttonTwo">
+            <button class="btn red-btn">Accept</button>
+            <button class="btn gray-btn">Decline</button>
+        </div>
+    <div id="overlay"></div>
+
 </div>
+
+
 
 <script>
     let radios = document.getElementsByName("flexRadioDefault");
-    for (const radio of radios) {
-        radio.onclick = function (event) {
+    for(const radio of radios) {
+        radio.onclick = function(event) {
             if (event.target.value == 1) {
                 document.getElementById("customer-register").style.cssText = "display: none"
                 document.getElementById("developer-register").style.cssText = "display: inline"
+            
             } else {
                 document.getElementById("developer-register").style.cssText = "display: none"
                 document.getElementById("customer-register").style.cssText = "display: inline"
             }
         }
     }
+    /*var$checkbox = $("#checkbox-container: checkbox");
+    $checkbox.on("change", function(){
+        $checkbox.each(function(){
+            checkboxValue[this.id]=this.checked;
+        });
+    localStorage.setItem("checkboxValue",JSON.stringify(checkboxValue));
+    };
+    //on the load page
+    $.each(checkboxValue, function(key, value){
+        $("#" + key).prop("checked", value);
+    }); */
+
+    
+    const openModalButtons = document.querySelectorAll('[data-modal-target]')
+    const closeModalButtons = document.querySelectorAll('[data-close-button]')
+    const overlay = document.getElementById('overlay')
+
+    openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = document.querySelector(button.dataset.modalTarget)
+        openModal(modal)
+        //alert(modal.innerHTML);
+    })
+    })
+
+    overlay.addEventListener('click', () => {
+    const modals = document.querySelectorAll('.modal.active')
+    modals.forEach(modal => {
+        closeModal(modal)
+    })
+    })
+
+    closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.modal')
+        closeModal(modal)
+    })
+    })
+
+    
+    $(document).on('click','#invalidCheck3',function(){
+        if($(this).is(':checked')){
+            openModal(modal);
+        }
+    });
+    function openModal(modal) {
+        if (modal == null) return
+        modal.classList.add('active')
+        overlay.classList.add('active')
+    }
+
+    function closeModal(modal) {
+    if (modal == null) return
+        modal.classList.remove('active')
+        overlay.classList.remove('active')
+    $('#invalidCheck3').prop('checked', false);
+    }                                   
 </script>

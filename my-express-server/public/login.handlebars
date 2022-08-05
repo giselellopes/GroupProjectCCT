@@ -1,6 +1,7 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="form-body">
     <div class="container form-signin">
-        <form>
+        <form id="loginForm">
             <h1 class="h3 mb-3 fw-normal">Sign in</h1>
 
             <div class="form-floating">
@@ -17,10 +18,55 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            <h1 style="font-size:15px;padding:20px 0;display:none;" id="warning_texta"></h1>
+            
         </form>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" id="submitb" onclick="validate()" >Login</button>
         <div class="register">
             <p>New around here? Create your new account by clicking <a href="/register">here</a>.</p>
         </div>
     </div>
 </div>
+
+
+
+<script>
+    $(document).on('click','#submitb',function(){
+        var send=0;
+        if($('#floatingPassword').val() == ''){
+            $('#warning_texta').html('Please enter your password').show();
+            send = 1;
+        }
+        if($('#floatingInput').val() == ''){
+            $('#warning_texta').html('Please enter your email').show();
+            send = 1;
+        }
+    function validate()
+        {
+            var username=document.getElementById("username").value;
+            var password=document.getElementById("password").value;
+            if(username=="admin" && password=="user")
+            {
+                alert("login successfully");
+                return false;
+            }
+            else
+            {
+                alert("login failed");
+            }
+        }
+        
+        //if(send == 0){
+            //Check password later when connected with database
+            //$('#loginFoum').submit();
+            //var savedPassword ='';
+            
+            //if($('#floatingPassword').val() != savedPassword) {
+              //$('#warning_texta').html('Invalid Password').show();
+           // }
+        //}
+        $(document).on('click','#floatingInput, #floatingPassword',function(){
+            $('#warning_texta').html('');
+        });
+    });
+</script>
