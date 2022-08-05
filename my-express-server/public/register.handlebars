@@ -112,7 +112,13 @@
     </div>
 
     <div id="developer-register">
+<<<<<<< HEAD
         <form class="row g-3" method="post" action="/">
+=======
+        <form class="row g-3" action="/devs" method="post">
+            {{!-- <form class="row g-3" action="/register" method="post"></form> --}}
+
+>>>>>>> fd91a199e1bfeef60f774fdcb08626a923c6801a
             <div class="col-md-4">
                 <label for="validationServer01" class="form-label">First name</label>
                 <input type="text" class="form-control" name="firstName" id="validationServer01" required>
@@ -125,19 +131,24 @@
                 <label for="validationServerUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
+<<<<<<< HEAD
                     <input type="email" class="form-control" id="validationServerUsername" name="username" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+=======
+                    <input type="email" class="form-control" id="validationServerUsername" name="email"
+                        aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+>>>>>>> fd91a199e1bfeef60f774fdcb08626a923c6801a
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         Please choose an email.
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="col-md-6">
-                <label for="exampleInputPassword1" class="form-label">Confirm password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="confirm-password" class="form-label">Confirm password</label>
+                <input type="password" class="form-control" id="confirm-password" name="confirmPassword" required>
             </div>
             <div class="col-md-6">
                 <label for="inputBank" class="form-label">Bank name</label>
@@ -193,63 +204,83 @@
     </div>
 
     <div id="customer-register" style="display: none">
+<<<<<<< HEAD
         <form class="row g-3" method="post" action="/">
+=======
+        <form class="row g-3" method="post" action="/customers">
+>>>>>>> fd91a199e1bfeef60f774fdcb08626a923c6801a
             <div class="col-md-4">
                 <label for="validationServer01" class="form-label">First name</label>
-                <input type="text" class="form-control" id="validationServer01" required>
+                <input type="text" class="form-control" id="validationServer01" name="firstName" required>
             </div>
             <div class="col-md-4">
                 <label for="validationServer02" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="validationServer02" required>
+                <input type="text" class="form-control" id="validationServer02" name="lastname" required>
             </div>
             <div class="col-md-4">
                 <label for="validationServerUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
+<<<<<<< HEAD
                     <input type="email" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+=======
+                    <input type="email" class="form-control" id="validationServerUsername" name="email"
+                        aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+>>>>>>> fd91a199e1bfeef60f774fdcb08626a923c6801a
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         Please choose an email.
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="col-md-6">
-                <label for="exampleInputPassword1" class="form-label">Confirm password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="confirmPassword" class="form-label">Confirm password</label>
+                <input type="password" class="form-control" id=" name=""" name="confirmPassword">
             </div>
             <div class="col-md-4">
                 <label for="selectCardFlag" class="form-label">Card flags</label>
-                <select id="selectCardFlag" class="form-select" aria-label="Default select example">
+                <select id="selectCardFlag" name="flag" class="form-select" aria-label="Default select example">
                     <option selected>Choose..</option>
-                    <option value="1">Visa</option>
-                    <option value="2">MasterCard</option>
-                    <option value="3">Other</option>
+                    <option value="visa">Visa</option>
+                    <option value="mastercard">MasterCard</option>
+                    <option value="elo">Elo</option>
                 </select>
             </div>
             <div class="col-md-4">
-                <label for="inputCardNumber" class="form-label">Card number</label>
+                <label for="inputCardNumber" class="form-label" name="cardNumber">Card number</label>
                 <input type="text" class="form-control" id="inputCardNumber">
             </div>
             <div class="col-md-4">
-                <label for="inputCardHolder" class="form-label">Card holder</label>
+                <label for="inputCardHolder" class="form-label" name="cardHolder">Card holder</label>
                 <input type="text" class="form-control" id="inputCardHolder">
             </div>
             <div class="col-md-6">
                 <label for="validationServer03" class="form-label">City</label>
+<<<<<<< HEAD
                 <input type="text" class="form-control" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+=======
+                <input type="text" class="form-control" id="validationServer03" name="city"
+                    aria-describedby="validationServer03Feedback" required>
+>>>>>>> fd91a199e1bfeef60f774fdcb08626a923c6801a
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
             <div class="col-md-3">
                 <label for="validationServer04" class="form-label">State</label>
+<<<<<<< HEAD
                 <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
                     <option selected value="">Choose...</option>
                     <option value="ireland">Ireland</option>
                     <option value="dublin">Dublin</option>
+=======
+                <select class="form-select" id="validationServer04" aria-describedby="validationServer04Feedback">
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+>>>>>>> fd91a199e1bfeef60f774fdcb08626a923c6801a
                 </select>
                 <div id="validationServer04Feedback" class="invalid-feedback">
                     Please select a valid state.
@@ -257,7 +288,12 @@
             </div>
             <div class="col-md-3">
                 <label for="validationServer05" class="form-label">Zip</label>
+<<<<<<< HEAD
                 <input type="text" class="form-control" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+=======
+                <input type="text" class="form-control" id="validationServer05"
+                    aria-describedby="validationServer05Feedback" name="zip" required>
+>>>>>>> fd91a199e1bfeef60f774fdcb08626a923c6801a
                 <div id="validationServer05Feedback" class="invalid-feedback">
                     Please provide a valid zip.
                 </div>
