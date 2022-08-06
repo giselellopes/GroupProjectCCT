@@ -1,13 +1,22 @@
 const { Router } = require('express');
 const router = Router();
-const { createDeveloper, getDeveloper } = require('../public/controllers/developer-controller')
+
+const LocalStorage = require('node-localstorage').LocalStorage;
+
+const ensureAuthenticated = require('../public/utils/EnsureAuthenticated');
 
 //routes for login
 router.get("/", function (req, res) {
+    const localStorage = new LocalStorage('./scratch');
+    localStorage._deleteLocation();
+
     res.render('index');
 });
 
 router.get("/login", function (req, res) {
+    const localStorage = new LocalStorage('./scratch');
+    localStorage._deleteLocation();
+
     res.render('login');
 });
 
@@ -15,16 +24,12 @@ router.get("/register", function (req, res) {
     res.render('register');
 });
 
-router.post("/register", createDeveloper);
-router.get("/devs", getDeveloper);
-
-
 router.get("/create-project", function (req, res) {
     res.render('create-project');
 });
 
-router.get("/proposal", function (req, res) {
-    res.render('proposal');
+router.get("/proposal", ensureAuthenticated, function (req, res) {
+    res.render('proposal')
 });
 
 router.get("/about", function (req, res) {
@@ -48,7 +53,7 @@ router.get("/project3", function (req, res) {
 router.get("/project3", function (req, res) {
     res.render('project3');
 });
-router.get("/findDeveloper", function (req, res) {
+router.get("/findDeveloper", ensureAuthenticated, function (req, res) {
     res.render('findDeveloper');
 });
 router.get("/iamDeveloper", function (req, res) {

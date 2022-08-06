@@ -1,12 +1,43 @@
-const Customer = require("../models/customer");
+const Customer = require("../models/Customer");
+const { hash } = require('../utils/HashPassword');
+
+const confirmPassword = function (password, confirmPassword) {
+
+    return password == confirmPassword;
+}
 
 exports.createCustomer = function (req, res) {
-    let newcustomer = new Customer(req.body);
-    newcustomer.save(function (err, customer) {
+    Customer.findOne({ email: req.body.email }, async function (err, customer) {
+        if (err) {
+            return res.status(400).json(err);
+        }
+
+        if (customer != null) {
+            return res.status(400).json({ Mensage: 'Email is already registered.' })
+        }
+        if (!confirmPassword(req.body.password, req.body.confirmPassword)) {
+            return res.status(300).json({ Mensage: 'Passwords do not match' })
+        }
+
+        const newCustomer = new Customer(req.body);
+
+        newCustomer.password = await hash(newCustomer.password);
+
+        newCustomer.save(function (err) {
+            if (err) {
+                return res.status(400).json(err);
+            }
+            res.redirect('login');
+        });
+    });
+};
+
+exports.getAllCustomers = function (req, res) {
+    Customer.find({}, function (err, dustomer) {
         if (err) {
             res.status(400).json(err);
         }
-        res.json(customer);
+        res.json(dustomer);
     });
 };
 

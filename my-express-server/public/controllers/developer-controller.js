@@ -1,27 +1,52 @@
 const Developer = require("../models/Developer");
+const { hash } = require('../utils/HashPassword');
 
-exports.createDeveloper = async function (req, res) {
-    const newDev = new Developer(req.body);
-    console.log(newDev)
-    //await Developer.remove()
-    await newDev.save(function (err) {
+const confirmPassword = function (password, confirmPassword) {
+
+    return password == confirmPassword;
+}
+
+exports.createDeveloper = function (req, res) {
+
+    Developer.findOne({ email: req.body.email }, async function (err, developer) {
         if (err) {
-
-            res.status(400).json({ Mensage: err });
+            return res.status(400).json(err);
         }
-        res.redirect('proposal');
+        if (developer != null) {
+            return res.status(400).json({ Mensage: 'Email is already registered.' })
+        }
+        if (!confirmPassword(req.body.password, req.body.confirmPassword)) {
+            return res.status(300).json({ Mensage: 'Passwords do not match' })
+        }
+        const newDev = new Developer(req.body);
+
+        newDev.password = await hash(newDev.password)
+
+        newDev.save(function (err) {
+            if (err) {
+                return res.status(400).json(err);
+            }
+            res.redirect('login');
+        });
     });
 };
 
-exports.getDeveloper = async function (req, res) {
-    const devs = await Developer.find()
-    res.json(devs)
-    // await Dev.find({}, function (err, developer) {
-    //     if (err) {
-    //         res.status(400).json(err);
-    //     }
-    //     res.json(developer);
-    // });
+exports.getAllDevelopers = function (req, res) {
+    Developer.find({}, function (err, developer) {
+        if (err) {
+            res.status(400).json(err);
+        }
+        res.json(developer);
+    });
+};
+
+exports.getDeveloper = function (req, res) {
+    Developer.findOne({ email: req.body.email }, function (err, developer) {
+        if (err) {
+            res.status(400).json(err);
+        }
+        res.json(developer);
+    });
 };
 
 exports.updateDeveloper = function (req, res) {
